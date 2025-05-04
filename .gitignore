@@ -1,0 +1,6 @@
+.env
+/filter_lists
+/media_filters
+*.log
+/__pycache__
+/.idea

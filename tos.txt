@@ -1,0 +1,51 @@
+Terms of Service
+
+Welcome to Angela! By using this bot, you agree to comply with the following terms and conditions. Please read them carefully.
+
+
+1. Acceptance of Terms
+
+By adding or using Angela, you agree to be bound by these Terms of Service. If you do not agree, please do not use the bot.
+
+
+2. Compliance with Discord's Terms of Service
+
+You must adhere to Discord's Terms of Service and Community Guidelines at all times while using Angela. Any violation of Discord's rules can result in the removal or banning of the bot from your server.
+
+
+3. Prohibited Uses
+
+You agree not to use Angela in any way that:
+
+Violates any applicable local, state, national, or international law or regulation.
+Engages in any form of harassment, discrimination, or abusive behavior towards other users.
+Involves the transmission of any unsolicited or unauthorized advertising, promotional materials, or any other form of spam.
+Involves the use of the bot for any malicious purposes, including but not limited to hacking, phishing, or spreading malware.
+Attempts to disrupt the normal functioning of the bot, its servers, or Discord's infrastructure.
+
+4. Data and Privacy
+
+As of the writing of this (18/04/2025), Angela does not collect information about the users or the servers it's in beyond what's necessary to it's most basic functionalities (member profiles, roles, and metadata about messages and voice channels).
+
+
+5. Limitation of Liability
+
+Angela is provided on an "as is" basis. I make no warranties or guarantees of any kind regarding the bot's functionality or availability. I am not liable for any damages or losses arising from the use or inability to use the bot.
+
+
+6. Termination
+
+I reserve the right to terminate or suspend access to Angela at any time, without prior notice, for any reason deemed appropriate.
+
+
+7. Changes to Terms
+
+I may update these Terms of Service from time to time. These changes will be broadcasted on the github repository (https://github.com/Gal-ahad/Angela-bot), since i haven't made a discord server for it... yet. Continued use of the bot after any such changes constitutes acceptance of the new terms.
+
+
+8. Contact Information
+
+If you have any questions or concerns about these Terms of Service, please contact me on discord (ga1_ahad).
+
+
+By using Angela, you acknowledge that you have read, understood, and agreed to these Terms of Service. Thank you for using my bot responsibly!

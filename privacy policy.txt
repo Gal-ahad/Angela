@@ -1,0 +1,49 @@
+﻿Privacy Policy for Angela
+
+
+This Privacy Policy explains how Angela, developed by ga1_ahad, handles your information. By using Angela, you consent to the practices described in this policy.
+
+
+Information Collection
+
+
+Angela does not collect any personal information from its users or the servers it is part of, beyond what is necessary for its functionality. This includes:
+
+
+User Commands
+Angela processes the commands issued by users to provide the requested service. These commands are not stored or logged.
+Server Information
+Angela may access certain server information (such as server ID and channel ID) temporarily during its operations, but this information is not stored.
+
+
+Use of Information
+
+
+Any information accessed by Angela is used solely to perform its intended functions, such as responding to user commands. No information is stored, shared, or used for any other purposes.
+
+
+Data Security
+
+
+As Angela does not store any personal data, there are no data security concerns related to personal information. However, reasonable measures are in place to ensure the bot operates securely and efficiently.
+
+
+Third-Party Services
+
+
+Angela does not share information with or rely on third-party services for processing user data.
+
+
+Changes to This Privacy Policy
+
+
+This Privacy Policy may be updated from time to time. Users will be notified of any significant changes via an announcement on the official Discord server or other appropriate channels.
+
+
+Contact Information
+
+
+For any questions or concerns regarding this Privacy Policy, please contact ga1_ahad on discord.
+
+
+By using Angela, you acknowledge that you have read and understood this Privacy Policy. Thank you for trusting Angela with your Discord interactions!
