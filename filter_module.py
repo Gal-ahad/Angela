@@ -1,15 +1,13 @@
-import discord
-import json
-import os
+import discord, json, os
 from discord import app_commands
 
 # Directories
-MEDIA_FILTER_DIR = 'media_filters'
+media_filter_DIR = 'media_filters'
 FILTER_DIR = 'filter_lists'
 
 # Ensure the directories exist
-if not os.path.exists(MEDIA_FILTER_DIR):
-    os.makedirs(MEDIA_FILTER_DIR)
+if not os.path.exists(media_filter_DIR):
+    os.makedirs(media_filter_DIR)
 
 if not os.path.exists(FILTER_DIR):
     os.makedirs(FILTER_DIR)
@@ -25,7 +23,7 @@ guild_media_filters = {}
 
 # Get the path for a specific server's media filter settings
 def get_media_filter_path(guild_id):
-    return os.path.join(MEDIA_FILTER_DIR, f'media_filter_{guild_id}.json')
+    return os.path.join(media_filter_DIR, f'media_filter_{guild_id}.json')
 
 # Get the path for a specific server's filter list
 def get_filter_path(guild_id):
@@ -68,11 +66,12 @@ def load_filter_list(guild_id):
 
     return filter_list
 
+
 # Set up moderation commands
 def setup_moderation_commands(moderation_group, client):
     
     # Command to toggle media filters for a channel
-    @moderation_group.command(name="media-filter", description="Toggle filtering of specific media types in this channel.")
+    @client.tree.command(name="media_filter", description="Toggle filtering of specific media types in this channel.")
     @app_commands.describe(media_type="The type of media to filter (images, videos, links, files, embeds)",action="Turn the filter on or off")
     @app_commands.choices(media_type=[
             app_commands.Choice(name="Images", value="images"),
@@ -81,6 +80,8 @@ def setup_moderation_commands(moderation_group, client):
             app_commands.Choice(name="Files", value="files"),
             app_commands.Choice(name="Embeds", value="embeds")
         ],action=[app_commands.Choice(name="On", value="on"),app_commands.Choice(name="Off", value="off")])
+
+        
     async def media_filter(interaction: discord.Interaction, media_type: str, action: str):
         # Check if the user has the admin role or is the server owner
         admin_role = discord.utils.get(interaction.guild.roles, name="Admin")
@@ -123,7 +124,7 @@ def setup_moderation_commands(moderation_group, client):
         await interaction.response.send_message(f"{media_type.capitalize()} filtering has been {status} in this channel.", ephemeral=False)
 
     # Command to view current media filter settings for a channel
-    @moderation_group.command(name="media_filter_status", description="Show the current media filter settings for this channel.")
+    @client.tree.command(name="media_filter_status", description="Show the current media filter settings for this channel.")
     async def media_filter_status(interaction: discord.Interaction):
         # Get or load media filter settings for this server
         guild_id = interaction.guild.id
@@ -158,7 +159,7 @@ def setup_moderation_commands(moderation_group, client):
         await interaction.response.send_message(embed=embed)
 
     # add to filter
-    @moderation_group.command(name="filter_add", description="Add a word to the list of filtered words.")
+    @client.tree.command(name="filter_add", description="Add a word to the list of filtered words.")
     @app_commands.describe(word="The word to add to the filter list")
     async def add_to_filter(interaction: discord.Interaction, word: str):
         # Check if the user has the admin role or is the server owner
@@ -189,7 +190,7 @@ def setup_moderation_commands(moderation_group, client):
         
         await interaction.response.send_message(f"Added '{word}' to the filter list.", ephemeral=True)
 
-    @moderation_group.command(name="filter_remove", description="Remove a word from the list of filtered words.")
+    @client.tree.command(name="filter_remove", description="Remove a word from the list of filtered words.")
     @app_commands.describe(word="The word to remove from the filter list")
     async def remove_from_filter(interaction: discord.Interaction, word: str):
         # Check if the user has the admin role or is the server owner
@@ -225,7 +226,7 @@ def setup_moderation_commands(moderation_group, client):
         
         await interaction.response.send_message(f"Removed '{word}' from the filter list.", ephemeral=True)
 
-    @moderation_group.command(name="filter_list", description="Show the current list of filtered words.")
+    @client.tree.command(name="filter_list", description="Show the current list of filtered words.")
     async def show_filter(interaction: discord.Interaction):
         # Check if the user has the admin role or is the server owner
         admin_role = discord.utils.get(interaction.guild.roles, name="Admin")
