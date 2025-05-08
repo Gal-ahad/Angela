@@ -85,11 +85,6 @@ async def on_message(message):
     await filter_module.on_message_filter(message, client)
 
 
-# moderation group
-moderation_group = app_commands.Group(name="moderation", description="Moderation related commands")
-moderation_group = filter_module.setup_moderation_commands(moderation_group, client)
-
-
 # coinflip command
 @client.tree.command(name="coinflip", description="Flip a coin! Let destiny decide.")
 async def coin(interaction: discord.Interaction):
