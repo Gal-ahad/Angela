@@ -1,104 +1,75 @@
+
 # Angela
 
-An open source Discord bot built with a mix of functionality and fun.
+A simple discord bot with a mix of functional and humorous commands. The project was born as an exercise to practice programming, so i wouldn't get rusty after not opening an IDE for too long.
+## Authors
 
-# Features
+- [@Gal-ahad](https://www.github.com/Gal-ahad)
 
-As of 30/04/2025, the available commands are:
 
-+ **`/help`** - Shows a list of commands
-+ **`/weather`** - Gives info on the weather in a given city.
-+ **`/ask`** - Uses AI to answer your questions (ChatGPT only)
-+ **`/exchange`** - Converts EUR into other currencies
-+ **`/clean`** - Purge a given number of messages
-+ **`/filter_add`** - Add a given word to the filter list
-+ **`/filter_remove`** - Remove a given word from the filter list
-+ **`/filter_list`** - Displays the server's filter list
-+ **`/mediafilter`** - Toggles media filtering settings for the channel you're currently viewing
-+ **`/mediafilter_show`** - Displays the filtering settings for the channel you're currently viewing
-+ **`/token`** - Displays the bot's token ;)
-+ **`/joke`** - The bot will tell you a joke
-+ **`/coinflip`** - Tosses a coin
-+ **`/magic_8_ball`** - Get predictions about the future (source: trust me bro)
-+ **`/owner`** - Get in contact with the developer
-+ **`/donate`** - Receive a link to my ko-fi page
-+ **`/stats`** - Returns bot's latency and RAM usage
+## Requirements
 
-# Requirements
-
-1. [Python](https://www.python.org/) 3.13.3 or later with pip
-2. [Github CLI](https://cli.github.com/)
-3. The necessary python modules (see more in the installation guide)
-4. Your own application in the [Developer portal](https://discord.com/developers/applications)
-	- This is necessary so you can get a bot token to pair with the code. Keep the token well hidden, it's like the house keys to the bot
-5. A .env file containing:
-	1. the bot's token
-	2. an api key from [Weatherstack](https://weatherstack.com/)
-	3. an api key from [Fixer.io](https://fixer.io/)
-	4. an api key from [OpenAI](https://openai.com/index/openai-api/)
-
-# Planned Features
-
-- [x] Added a server specific filter
-- [x] AI Powered answers to your questions
-- [x] Added channel-specific media filtering
-- [x] Bulk delete messages
-- [x] Fetch jokes from an API
-- [ ] Reminders from inside Discord
-- [ ] Poll creation
-- [ ] Fortune cookies
-- [ ] Fuck, Marry, Kill game
-- [ ] Rock, Paper, Scissors
-
-And more! I have a board on Trello for this thing, and i feel like it's unnecessary to just copy everything that's there.
-Some ideas might get scrapped in the process, so no promises!
-
-# Installation
-
-1. **Clone the Repository**: Make sure you have the [GitHub CLI](https://cli.github.com/) installed 
-2. **Open a terminal window:** On windows, hold shift and right click inside your desired folder, click "open in terminal" and run the following command:
-```
-gh repo clone Gal-ahad/Angela
-```
-  - on Mac, Right-click inside the Angela folder and select "New Terminal at Folder."
-  - On Linux, Right-click inside the Angela folder and choose "Open in Terminal."
-3. **Create a .env file:** Open Notepad (or your preferred text editor), and save a new file named `.env` inside of the main `Angela` folder
-4. Add your API keys in the following format: `VARIABLENAME = value` (spaces are optional)
-    Navigate to the main folder:
-```
-cd Angela
-```
-6. **Install Dependencies:** Make sure you have Python and pip installed, then run:
-```
-pip install -r requirements.txt
-```
-7. type `python Angela.py` or `py Angela.py` and enter
-	- if you already have a code editor you can also run the main script from there.
-  - It's not necessary since you can do all this with just the terminal and notepad, but if you insist, popular choices include [Visual Studio Code](https://code.visualstudio.com/) and [Sublime Text](https://www.sublimetext.com/)
-
-If everything was done correctly you should be able to host the bot on your machine! If the guide is incorrect let me know.
-
-# Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
+- Python 3.13.3 or later
+- Dependencies and API keys (see more in the [Run Locally](#run-locally) section)
+## Run Locally
 
 1. Clone the repository
-2. Create your own branch
-3. Commit your changes
-4. Push to the branch
-5. Open a Pull Request
 
-Additionally (or if you can't code) you can help financially with a donation on [Ko-Fi](https://ko-fi.com/ga1_ahad). No pressure though!
+    ```
+    gh repo clone Gal-ahad/Angela
+    ```
 
-# License
+2. Create a `.env` file containing the following API keys in the root folder:
+    ```
+    TOKEN = your bot's token
+    weather = your api key
+    OPENAI_API_KEY = your api key
+    fixer_api = your api key
+    ```
+The keys can be found at: [Discord's Developer portal](https://discord.com/developers/applications), [Weatherstack](https://weatherstack.com/), [OpenAI](https://platform.openai.com/docs/overview) and [Fixer.io](https://fixer.io/)
 
-This project is licensed under the GNU Public General License - see the LICENSE file for details.
+3. Install dependencies:
 
-# Support
+    ```
+    pip install -r requirements.txt
+    ```
 
-To get in contact with me either run the /owner command from the bot or contact me on the following:
+4. Run from an IDE or type `py Angela.py` in a terminal window
+## Usage
 
-- [Twitter](https://x.com/_Ga1ahad)
-- [Bluesky](https://bsky.app/profile/lolishojo.bsky.social)
-- [Mastodon](https://mastodon.social/@Sir_Ga1ahad)
-- Discord: ga1_ahad
+In a channel where the bot has write and slash commands permissions, type:
+```
+/help
+```
+For a list of commands.
+
+## Features
+
+- Retrieve weather for a given city
+- Use AI to answer queries
+- Exchange EUR into other currencies
+- Filter and purge capabilities
+- Channel and media specific filtering
+And more!
+
+## License
+
+[GNU General Public License v3.0](https://github.com/Gal-ahad/Angela/blob/main/LICENSE)
+
+
+## Screenshots
+
+![App Screenshot](https://files.catbox.moe/d772sq.png)
+![App Screenshot](https://files.catbox.moe/85nmmb.png)
+## Planned Features
+
+- [ ]  Ban, kick, mute and timeout users
+- [ ]  Get reminders from inside Discord
+- [ ]  Create polls
+- [ ]  Assign roles thru reactions
+- [ ]  Choice picker
+- [ ]  Fortune cookies
+- [ ]  Rock Paper Scissors
+## Support
+
+For support, please head over to my [profile's readme](https://github.com/Gal-ahad/Gal-ahad?tab=readme-ov-file#-find-me-elsewhere).
