@@ -50,6 +50,7 @@ For a list of commands.
 - Exchange EUR into other currencies
 - Filter and purge capabilities
 - Channel and media specific filtering
+
 And more!
 
 ## License
