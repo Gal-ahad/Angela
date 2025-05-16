@@ -50,9 +50,10 @@ async def owner(interaction: discord.Interaction):
 
     embed.add_field(name="Github", value="https://github.com/Gal-ahad", inline=False)
     embed.add_field(name="Discord", value="Username: ga1_ahad.", inline=False)
-    embed.add_field(name="Twitter", value="https://x.com/_Ga1ahad", inline=False)
+    embed.add_field(name="Twitter", value="https://x.com/_Gal_ahad", inline=False)
     embed.add_field(name="Bluesky", value="https://bsky.app/profile/lolishojo.bsky.social", inline=False)
     embed.add_field(name="Mastodon", value="https://mastodon.social/@Sir_Ga1ahad", inline=False)
+    embed.add_field(name="Reddit", value="https://www.reddit.com/user/Storyshifting/", inline=False)
 
     await interaction.response.send_message(embed=embed)
 
