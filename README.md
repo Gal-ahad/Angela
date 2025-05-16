@@ -70,7 +70,7 @@ And more!
 - [ ]  Assign roles thru reactions
 - [ ]  Choice picker
 - [ ]  Fortune cookies
-- [ ]  Rock Paper Scissors
+- [x]  Rock Paper Scissors
 ## Support
 
 For support, please head over to my [profile's readme](https://github.com/Gal-ahad/Gal-ahad?tab=readme-ov-file#-find-me-elsewhere).
