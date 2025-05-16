@@ -74,3 +74,4 @@ And more!
 ## Support
 
 For support, please head over to my [profile's readme](https://github.com/Gal-ahad/Gal-ahad?tab=readme-ov-file#-find-me-elsewhere).
+Or you can [buy me a coffee](https://ko-fi.com/ga1_ahad)
