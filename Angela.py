@@ -1,10 +1,10 @@
-import discord, os, sys
+import discord, os, sys, filter_module
 from logging import FileHandler
 from discord.ext import commands
 from discord import app_commands
 from dotenv import load_dotenv
 import slash_commands as slash
-import filter_module
+from typing import Literal
 
 print("Starting the script...\n")
 
@@ -84,6 +84,19 @@ async def on_message(message):
     # Use the NSFW filter module
     await filter_module.on_message_filter(message, client)
 
+# rock, paper, scissors
+
+@client.tree.command(name="rps", description="Play a game of rock, paper, scissors.")
+async def rps(
+    interaction: discord.Interaction,
+    option: Literal["Rock", "Paper", "Scissors"]
+    ):
+    await slash.rps(interaction, option)
+
+# clean command
+@client.tree.command(name="clean", description="Clean a certain amount of messages")
+async def clean(interaction: discord.Interaction, amount: int):
+    await slash.clean(interaction, amount)
 
 # coinflip command
 @client.tree.command(name="coinflip", description="Flip a coin! Let destiny decide.")

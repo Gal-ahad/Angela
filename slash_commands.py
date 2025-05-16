@@ -1,7 +1,7 @@
 import discord, asyncio, datetime, requests, os, random, psutil, time
-from typing import Optional, Dict
+from typing import Optional, Dict, Literal
 from dotenv import load_dotenv
-
+from discord import app_commands
 
 # Load environment variables to ensure they're available
 load_dotenv()
@@ -268,8 +268,10 @@ async def weather(interaction: discord.Interaction, location: str):
         else:
             weather_info = "Sorry, I couldn't retrieve the weather information. Please check the location and try again."
     
-    except Exception as e:
-        weather_info = f"Error processing weather data: {str(e)}"
+    except requests.exceptions.RequestException as e:
+        # Catch an error if the user inputs something that isn't a city's name
+        weather_info = f"Error: Invalid location. Please enter a valid city name."
+        await interaction.followup.send(weather_info)
 
     # Send the weather information back to the Discord channel
     await interaction.followup.send(weather_info)
@@ -339,7 +341,7 @@ async def ask(interaction: discord.Interaction, question: str):
         # Send the disclaimer as a follow-up message
         await asyncio.sleep(2)
         follow_up_message = "With that said, there is a non-zero possibility for errors. So please, take this with a grain of salt and fact-check your answers, thank you."
-        await interaction.followup.send(follow_up_message)
+        await interaction.channel.send(follow_up_message)
 
     except Exception as e:
         await interaction.followup.send(f"Sorry, I encountered an error: {str(e)}.")
@@ -347,10 +349,6 @@ async def ask(interaction: discord.Interaction, question: str):
 
 # purge command
 async def clean(interaction: discord.Interaction, amount: int):
-    
-    if not isinstance(amount, int) or amount < 0:
-        await interaction.response.send_message("Please enter a positive number.", ephemeral=True)
-        return
     
     max_amount = 100
     
@@ -362,8 +360,63 @@ async def clean(interaction: discord.Interaction, amount: int):
         await interaction.response.send_message(f"Sorry, I can only purge up to {max_amount} messages at once.", ephemeral=True)
         return
     
-    await interaction.channel.purge(limit=amount)
-    await interaction.response.send_message(f"Deleted {amount} message/s.", ephemeral=True)
+    # First acknowledge the interaction to prevent timeout
+    await interaction.response.defer(ephemeral=True)
+    
+    # Then purge messages
+    deleted = await interaction.channel.purge(limit=amount)
+    
+    # Send followup message
+    await interaction.followup.send(f"Deleted {len(deleted)} message(s).", ephemeral=True)
+
+# rock, paper, scissors
+
+async def rps(
+    interaction: discord.Interaction,
+    option: Literal["Rock", "Paper", "Scissors"]
+    ):
+
+    player_choice = option.lower()
+    computer_choice = random.choice(["rock", "paper", "scissors"])
+
+    # First response
+    if computer_choice == "rock":
+        await interaction.response.send_message("Alright, I choose Rock! 🪨")
+    elif computer_choice == "paper":
+        await interaction.response.send_message("Alright, I choose Paper! 📜")
+    elif computer_choice == "scissors":
+        await interaction.response.send_message("Alright, I choose Scissors! ✂️")
+
+    # Add await to sleep calls
+    await asyncio.sleep(2)
+
+    # Use interaction.channel.send instead of followup for subsequent messages
+    await interaction.channel.send("Rock...")
+    await asyncio.sleep(1)
+    await interaction.channel.send("Paper...")
+    await asyncio.sleep(1)
+    await interaction.channel.send("Scissors!")
+
+    await asyncio.sleep(2)
+
+    # Result message
+    if player_choice == computer_choice:
+        await interaction.channel.send("Damn, it's a tie!")
+    elif player_choice == "rock":
+        if computer_choice == "paper":
+            await interaction.channel.send("You lost, I chose paper! 😝")
+        else:
+            await interaction.channel.send("You won, I chose scissors! 😫")
+    elif player_choice == "paper":
+        if computer_choice == "rock":
+            await interaction.channel.send("You won, I chose rock! 😫")
+        else:
+            await interaction.channel.send("You lost, I chose scissors! 😝")
+    elif player_choice == "scissors":
+        if computer_choice == "rock":
+            await interaction.channel.send("You lost, I chose rock! 😝")
+        else:
+            await interaction.channel.send("You won, I chose paper! 😫")
 
 
 # display the help list
@@ -405,6 +458,7 @@ async def helpme(interaction: discord.Interaction):
         "***`/token`*** - Displays the bot's token.\n"
         "***`/joke`*** - The bot will tell you a joke.\n"
         "***`/coinflip`*** - Tosses a coin.\n"
+        "***`/rps`*** - Play a game of rock, paper, scissors.\n"
         "***`/magic_8_ball`*** - Get predictions about the future",
         inline=False
     )
