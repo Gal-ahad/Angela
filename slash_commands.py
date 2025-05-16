@@ -404,6 +404,7 @@ async def helpme(interaction: discord.Interaction):
         value=
         "***`/token`*** - Displays the bot's token.\n"
         "***`/joke`*** - The bot will tell you a joke.\n"
+        "***`/rps`*** - Play a game of rock, paper, scissors.\n"
         "***`/coinflip`*** - Tosses a coin.\n"
         "***`/magic_8_ball`*** - Get predictions about the future",
         inline=False
